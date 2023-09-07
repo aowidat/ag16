@@ -1,0 +1,22 @@
+<form [formGroup]="form" (ngSubmit)="submit()" class="center">
+  <div class="vert">
+    <mat-form-field appearance="outline" style="margin-bottom: 20px;">
+      <mat-label>Benutzer</mat-label>
+      <input type="text" matInput formControlName="username">
+      <mat-error *ngIf="myError('username', 'required')">Benutzername is erforderlich</mat-error>
+      <mat-error *ngIf="myError('username', 'email')">Benutzername soll E-Mail sein</mat-error>
+      <mat-error *ngIf="myError('username', 'maxlength')">Benutzername soll <strong> nicht </strong> länger als 50 Zeichen sein</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline"  style="margin-bottom: 20px;">
+      <mat-label>Passwort</mat-label>
+      <input [type]="hide ? 'password' : 'text'" matInput formControlName="password">
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      <mat-error *ngIf="myError('password', 'required')">Passwort is erforderlich</mat-error>
+      <mat-error *ngIf="myError('password', 'maxlength')">Passwort soll <strong> nicht </strong> länger als 50 Zeichen sein</mat-error>
+      <mat-error *ngIf="myError('password', 'minlength')">Passwort soll länger als 8 Zeichen sein</mat-error>
+    </mat-form-field>
+
+    <button *ngIf="!isLogging" type="submit" mat-raised-button color="primary" [disabled]='invaildForm()'>Anmelden</button>
+    <mat-spinner *ngIf="isLogging" diameter="35"></mat-spinner>
+  </div>
+</form>
