@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataService } from 'src/app/service/data.service';
 
 @Component({
   selector: 'app-home',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  constructor(private data: DataService){}
+
+  upload(){
+   this.data.loadData().forEach( x => {
+    console.log(x.running);
+  });
+  }
 }
