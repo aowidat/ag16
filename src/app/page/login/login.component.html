@@ -13,7 +13,7 @@
       <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       <mat-error *ngIf="myError('password', 'required')">Passwort is erforderlich</mat-error>
       <mat-error *ngIf="myError('password', 'maxlength')">Passwort soll <strong> nicht </strong> länger als 50 Zeichen sein</mat-error>
-      <mat-error *ngIf="myError('password', 'minlength')">Passwort soll länger als 8 Zeichen sein</mat-error>
+      <mat-error *ngIf="myError('password', 'minlength')">Passwort soll länger als  <strong>12</strong> Zeichen sein</mat-error>
     </mat-form-field>
 
     <button *ngIf="!isLogging" type="submit" mat-raised-button color="primary" [disabled]='invaildForm()'>Anmelden</button>
