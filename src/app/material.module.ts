@@ -49,6 +49,7 @@ import {DialogModule} from '@angular/cdk/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 @NgModule({
   imports: [
@@ -105,6 +106,7 @@ import { CommonModule } from '@angular/common';
     PortalModule,
     ScrollingModule,
     DialogModule,
+    FlexLayoutModule
   ]
 })
 export class MaterialImporterModule {}
