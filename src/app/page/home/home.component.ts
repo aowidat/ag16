@@ -12,13 +12,11 @@ import { DataService } from 'src/app/service/data.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, OnDestroy {
-
-
-
   value: String = '';
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   obs: Observable<any> | undefined;
   dataSource: MatTableDataSource<Data> = new MatTableDataSource<Data>();
+  selected: Data | null = null;
 
   constructor(private dataService: DataService, private changeDetectorRef: ChangeDetectorRef, private router: Router) {
     this.doUpload();
@@ -55,5 +53,14 @@ export class HomeComponent implements OnInit, OnDestroy {
         data: item
       }
     });
+  }
+  openPreview(item: Data): void {
+    console.log(item.studyDestSchema);
+
+    this.selected = item;
+  }
+
+  closePreview(): void {
+    this.selected = null;
   }
 }

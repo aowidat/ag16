@@ -15,7 +15,7 @@
 
     <div class="container responsive-grid">
       <mat-card *ngFor="let item of obs |async">
-        <mat-card-header (click)="onCardClicked(item)" class="card">
+        <mat-card-header (click)="openPreview(item)" class="card">
           <div mat-card-avatar></div>
           <mat-card-title>{{item.studyDestSchema}}</mat-card-title>
           <mat-card-subtitle>{{item.studySource}}</mat-card-subtitle>
@@ -38,3 +38,11 @@
         </mat-card-actions>
       </mat-card>
     </div>
+
+    <app-card-preview
+  *ngIf="selected"
+  [item]="selected"
+  (click)="closePreview()"
+  class="preview"
+  [ngClass]="{ open: selected !== null }"
+></app-card-preview>

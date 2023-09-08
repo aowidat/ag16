@@ -12,6 +12,7 @@ import { Error404Component } from './page/error404/error404.component';
 import { LoginComponent } from './page/login/login.component';
 import { AboutComponent } from './page/about/about.component';
 import { ItemComponent } from './page/item/item.component';
+import { CardPreviewComponent } from './page/card-preview/card-preview.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ItemComponent } from './page/item/item.component';
     Error404Component,
     LoginComponent,
     AboutComponent,
-    ItemComponent
+    ItemComponent,
+    CardPreviewComponent
   ],
   imports: [
     BrowserModule,
