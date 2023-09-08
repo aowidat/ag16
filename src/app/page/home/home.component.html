@@ -3,8 +3,7 @@
         <app-card-preview
         *ngIf="selected"
         [item]="selected"
-        (click)="closePreview()"
-        [ngClass]="{ open: selected !== null }"
+        (click)="closePreview(); sidenav.toggle()"
       ></app-card-preview>
       </mat-sidenav>
       <mat-sidenav-content>
