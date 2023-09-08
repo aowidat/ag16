@@ -11,6 +11,7 @@ import { HomeComponent } from './page/home/home.component';
 import { Error404Component } from './page/error404/error404.component';
 import { LoginComponent } from './page/login/login.component';
 import { AboutComponent } from './page/about/about.component';
+import { ItemComponent } from './page/item/item.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { AboutComponent } from './page/about/about.component';
     HomeComponent,
     Error404Component,
     LoginComponent,
-    AboutComponent
+    AboutComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,

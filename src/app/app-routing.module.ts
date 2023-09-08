@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './page/about/about.component';
 import { Error404Component } from './page/error404/error404.component';
 import { HomeComponent } from './page/home/home.component';
+import { ItemComponent } from './page/item/item.component';
 import { LoginComponent } from './page/login/login.component';
 import { authGuardGuard } from './service/auth.guard';
 
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [authGuardGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'about', component: AboutComponent },
+  { path: 'items/:studySource', component: ItemComponent },
   { path: '',   redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: Error404Component },
 ];

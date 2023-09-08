@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Data } from 'src/app/models/data';
 import { DataService } from 'src/app/service/data.service';
@@ -12,12 +13,14 @@ import { DataService } from 'src/app/service/data.service';
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
+
+
   value: String = '';
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   obs: Observable<any> | undefined;
   dataSource: MatTableDataSource<Data> = new MatTableDataSource<Data>();
 
-  constructor(private dataService: DataService, private changeDetectorRef: ChangeDetectorRef) {
+  constructor(private dataService: DataService, private changeDetectorRef: ChangeDetectorRef, private router: Router) {
     this.doUpload();
   }
 
@@ -44,6 +47,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
   taggelHide(item: Data){
     item.collapesd = !item.collapesd;
+  }
 
+  onCardClicked(item: Data){
+    this.router.navigate(['items/' + `${item.studySource}`], {
+      state:{
+        data: item
+      }
+    });
   }
 }

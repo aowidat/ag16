@@ -13,9 +13,9 @@
         <mat-paginator class="paginger block" [pageSizeOptions]="[10, 30, 50]" showFirstLastButtons>
         </mat-paginator>
 
-    <div class="container responsive-grid" >
-      <mat-card class="card" *ngFor="let item of obs |async">
-        <mat-card-header>
+    <div class="container responsive-grid">
+      <mat-card *ngFor="let item of obs |async">
+        <mat-card-header (click)="onCardClicked(item)" class="card">
           <div mat-card-avatar></div>
           <mat-card-title>{{item.studyDestSchema}}</mat-card-title>
           <mat-card-subtitle>{{item.studySource}}</mat-card-subtitle>
