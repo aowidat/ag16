@@ -1,6 +1,6 @@
 <mat-sidenav-container fullscreen>
   <mat-sidenav #sidenav mode="side">
-    <mat-nav-list>
+    <mat-nav-list style="padding: 0 0;">
       <a mat-list-item routerLink="/home" routerLinkActive="active" (click)="sidenav.toggle()" ariaCurrentWhenActive="page">Startseite</a>
       <a mat-list-item routerLink="/about" routerLinkActive="active" (click)="sidenav.toggle()" ariaCurrentWhenActive="page">Über das Tool</a>
       <a mat-list-item  (click)=" sidenav.toggle()">Sitzung erneuen</a>

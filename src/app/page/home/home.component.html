@@ -1,53 +1,45 @@
-    <mat-sidenav-container fullscreen>
-      <mat-sidenav #sidenav mode="side">
-        <app-card-preview
-        *ngIf="selected"
-        [item]="selected"
-        (click)="closePreview(); sidenav.toggle()"
-      ></app-card-preview>
-      </mat-sidenav>
-      <mat-sidenav-content>
-
-        <div>
-          <mat-form-field>
-            <mat-label>Suchfunktion</mat-label>
-            <input matInput placeholder="Schreiben zum Suchen" type="text" [(ngModel)]="value" (ngModelChange)="doFilter()">
-            <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''; doFilter()">
-              <mat-icon>close</mat-icon>
-            </button>
-          </mat-form-field>
-          <button mat-icon-button color="primary" class="update-button"
-            (click)="doUpload()"><mat-icon>refresh</mat-icon></button>
-          </div>
-            <mat-paginator class="paginger block" [pageSizeOptions]="[10, 30, 50]" showFirstLastButtons>
-            </mat-paginator>
-
-        <div class="container responsive-grid">
-          <mat-card *ngFor="let item of obs |async">
-            <mat-card-header (click)="openPreview(item); sidenav.toggle()" class="card">
-              <div mat-card-avatar></div>
-              <mat-card-title>{{item.studyDestSchema}}</mat-card-title>
-              <mat-card-subtitle>{{item.studySource}}</mat-card-subtitle>
-            </mat-card-header>
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-            <mat-card-content *ngIf="!item.collapesd">
-              <p>
-                {{item.running}}
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias voluptates minus deserunt aut, sit
-                quo enim debitis minima culpa facilis repellendus obcaecati. Ullam assumenda ducimus reprehenderit
-                praesentium
-                similique, quis quidem?
-              </p>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-button>LIKE</button>
-              <button mat-button>SHARE</button>
-              <button  *ngIf="!item.collapesd" mat-button (click)="taggelHide(item)">HIDE</button>
-              <button  *ngIf="item.collapesd" mat-button (click)="taggelHide(item)">MORE</button>
-            </mat-card-actions>
-          </mat-card>
-        </div>
-      </mat-sidenav-content>
-    </mat-sidenav-container>
-
-
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #sidenav mode="side">
+    <app-card-preview *ngIf="selected" [item]="selected" (click)="closePreview(); sidenav.toggle()"></app-card-preview>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div>
+      <mat-form-field>
+        <mat-label>Suchfunktion</mat-label>
+        <input matInput placeholder="Schreiben zum Suchen" type="text" [(ngModel)]="value" (ngModelChange)="doFilter()">
+        <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''; doFilter()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+      <button mat-icon-button color="primary" class="update-button"
+        (click)="doUpload()"><mat-icon>refresh</mat-icon></button>
+    </div>
+    <mat-paginator class="paginger block" [pageSizeOptions]="[10, 30, 50]" showFirstLastButtons>
+    </mat-paginator>
+    <div class="container responsive-grid">
+      <mat-card *ngFor="let item of obs |async">
+        <mat-card-header (click)="openPreview(item); sidenav.toggle()" class="card">
+          <div mat-card-avatar></div>
+          <mat-card-title>{{item.studyDestSchema}}</mat-card-title>
+          <mat-card-subtitle>{{item.studySource}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        <mat-card-content *ngIf="!item.collapesd">
+          <p>
+            {{item.running}}
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias voluptates minus deserunt aut, sit
+            quo enim debitis minima culpa facilis repellendus obcaecati. Ullam assumenda ducimus reprehenderit
+            praesentium
+            similique, quis quidem?
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+          <button *ngIf="!item.collapesd" mat-button (click)="taggelHide(item)">HIDE</button>
+          <button *ngIf="item.collapesd" mat-button (click)="taggelHide(item)">MORE</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
